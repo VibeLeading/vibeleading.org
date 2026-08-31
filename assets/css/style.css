@@ -636,6 +636,96 @@ main, header.nav, .ticker, .footer { position: relative; z-index: 1; }
 }
 .footer__bar em { font-style: normal; color: var(--muted); }
 
+/* ---------- FAQ ---------- */
+
+.section--faq { padding-top: 5rem; }
+.faq { max-width: 760px; margin: 0 auto; }
+.faq h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 1.6rem; }
+.faq details {
+  border: 1px solid var(--stroke);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.015);
+  margin-bottom: 0.8rem;
+  overflow: hidden;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.faq details[open] { border-color: rgba(0, 212, 255, 0.35); background: rgba(0, 212, 255, 0.04); }
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  user-select: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  color: var(--cyan);
+  font-size: 1.3rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+  flex: 0 0 auto;
+}
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p {
+  margin: 0;
+  padding: 0 1.25rem 1.2rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 640px;
+}
+.faq details a { color: var(--cyan); }
+.faq details code {
+  color: var(--pink);
+  font-family: var(--font-display);
+  font-size: 0.9em;
+}
+
+/* ---------- PWA toast ---------- */
+
+.pwa-toast {
+  position: fixed;
+  left: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  background: rgba(8, 10, 16, 0.95);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  max-width: calc(100vw - 2.5rem);
+}
+.pwa-toast.is-visible { opacity: 1; transform: none; }
+.pwa-toast__msg { color: var(--text); font-size: 0.9rem; }
+.pwa-toast__btn {
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  background: transparent;
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.pwa-toast__btn:hover { background: var(--cyan); color: #041018; }
+
 /* ---------- Reveal animations ---------- */
 
 .reveal {

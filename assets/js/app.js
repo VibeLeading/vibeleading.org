@@ -180,4 +180,41 @@
   /* ---------- Footer year ---------- */
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* ---------- PWA / service worker ---------- */
+  let waitingSW = null;
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (waitingSW) window.location.reload();
+    });
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/sw.js").then((reg) => {
+        reg.addEventListener("updatefound", () => {
+          const nw = reg.installing;
+          if (!nw) return;
+          nw.addEventListener("statechange", () => {
+            if (nw.state === "installed" && navigator.serviceWorker.controller) {
+              waitingSW = nw;
+              showPwaToast();
+            }
+          });
+        });
+      });
+    });
+  }
+
+  function showPwaToast() {
+    if (document.getElementById("pwa-toast")) return;
+    const toast = document.createElement("div");
+    toast.id = "pwa-toast";
+    toast.className = "pwa-toast";
+    toast.innerHTML =
+      '<span class="pwa-toast__msg">A new version of this site is ready.</span>' +
+      '<button class="pwa-toast__btn" type="button">Reload</button>';
+    document.body.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add("is-visible"));
+    toast.querySelector(".pwa-toast__btn").addEventListener("click", () => {
+      if (waitingSW) waitingSW.postMessage({ type: "SKIP_WAITING" });
+    });
+  }
 })();

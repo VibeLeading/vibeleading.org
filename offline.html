@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Offline — VibeLeading</title>
+  <meta name="theme-color" content="#05060a">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+      background: #05060a;
+      color: #e9f1ff;
+      text-align: center;
+      padding: 2rem;
+    }
+    svg { width: 72px; height: 72px; opacity: 0.95; }
+    h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 0; letter-spacing: -0.01em; }
+    p { color: #8fa3c0; max-width: 34ch; margin: 0; line-height: 1.6; }
+    a {
+      color: #00d4ff;
+      text-decoration: none;
+      border: 1px solid rgba(0, 212, 255, 0.35);
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    a:hover { background: rgba(0, 212, 255, 0.1); transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#00d4ff"/>
+        <stop offset="1" stop-color="#ff2d95"/>
+      </linearGradient>
+    </defs>
+    <rect width="64" height="64" rx="14" fill="#05060a"/>
+    <path d="M10 46 L28 18 L38 30 L50 14 L56 32" fill="none" stroke="url(#g)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="47" cy="42" r="4.5" fill="url(#g)"/>
+  </svg>
+  <h1>You are offline</h1>
+  <p>The cockpit is still standing. This page is cached so you can keep your bearings.</p>
+  <a href="/">Back to vibeleading.org</a>
+</body>
+</html>

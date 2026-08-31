@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VibeLeading — The Corporate Race Against Machines</title>
+  <meta name="description" content="VibeLeading is the open-source home of the Vibe Leading methodology: agent skills that teach a Pilot how to lead intelligence, and MCP servers that give AI agents hands in the corporate engine.">
+  <meta name="keywords" content="vibe leading, VibeLeading, Intent-Result Alignment, Mission Script, AI leadership, MCP servers, agent skills, Double Tenaza, HUD telemetry">
+  <meta name="author" content="Jean Machuca">
+  <meta name="theme-color" content="#05060a">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VibeLeading">
+  <meta property="og:title" content="VibeLeading — The Corporate Race Against Machines">
+  <meta property="og:description" content="Small squads. Real-time telemetry. Direct intent. Skills and MCP servers to lead intelligence in the AI era.">
+  <meta property="og:url" content="https://vibeleading.org">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VibeLeading — The Corporate Race Against Machines">
+  <meta name="twitter:description" content="Small squads. Real-time telemetry. Direct intent.">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="orb orb--cyan" aria-hidden="true"></div>
+  <div class="orb orb--pink" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="nav__brand" href="#top" aria-label="VibeLeading home">
+      <svg class="nav__logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M3 18 L10 6 L14 10 L18 5 L21 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="17.5" cy="16.5" r="1.6" fill="currentColor"/>
+      </svg>
+      <span>Vibe<span class="text-grad">Leading</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#method">Methodology</a>
+      <a href="#skills">Skills</a>
+      <a href="#mcp">MCP Servers</a>
+      <a href="#book">The Book</a>
+      <a href="#oath">The Oath</a>
+      <a class="nav__cta" href="https://github.com/VibeLeading" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="nav__mobile" id="mobile-menu" hidden>
+    <a href="#method">Methodology</a>
+    <a href="#skills">Skills</a>
+    <a href="#mcp">MCP Servers</a>
+    <a href="#book">The Book</a>
+    <a href="#oath">The Oath</a>
+    <a href="https://github.com/VibeLeading" target="_blank" rel="noopener">GitHub</a>
+  </div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <p class="hero__eyebrow reveal">The Corporate Race Against Machines</p>
+      <h1 class="hero__title reveal">
+        Small squads.<br>
+        Real-time <span class="text-grad">telemetry</span>.<br>
+        Direct intent.
+      </h1>
+      <p class="hero__sub reveal">
+        VibeLeading is the open-source home of the <strong>Vibe Leading</strong> methodology —
+        agent <em>skills</em> that turn any leader into a Pilot, and <em>MCP servers</em> that give
+        AI agents hands inside the corporate engine.
+      </p>
+      <div class="hero__actions reveal">
+        <a class="btn btn--primary" href="#book">Buy the book</a>
+        <a class="btn btn--ghost" href="#skills">Explore the tools</a>
+      </div>
+
+      <div class="hud">
+        <div class="hud__readout" aria-label="Live telemetry">
+          <div class="hud__cell">
+            <span class="hud__value" id="hud-ira" data-count="94" data-suffix="%">0%</span>
+            <span class="hud__label">IRA</span>
+          </div>
+          <div class="hud__cell">
+            <span class="hud__value" id="hud-delta" data-count="38" data-suffix="%">0%</span>
+            <span class="hud__label">Circuit Δ</span>
+          </div>
+          <div class="hud__cell">
+            <span class="hud__value" id="hud-debt" data-count="2" data-suffix="%">0%</span>
+            <span class="hud__label">Hallucination debt</span>
+          </div>
+          <div class="hud__cell">
+            <span class="hud__value" id="hud-lap" data-count="4">0</span>
+            <span class="hud__label">Lap time · h</span>
+          </div>
+        </div>
+        <div class="hud__tick" aria-hidden="true">
+          <span class="hud__dot"></span>
+          <span>TELEMETRY LIVE — ALL SYSTEMS GREEN</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>Intent-Result Alignment</span><i>◆</i>
+        <span>Mission Script</span><i>◆</i>
+        <span>Double Tenaza</span><i>◆</i>
+        <span>Circuit Delta</span><i>◆</i>
+        <span>NPC Agents</span><i>◆</i>
+        <span>Hallucination Debt</span><i>◆</i>
+        <span>The Garage</span><i>◆</i>
+        <span>Organizational Geometry</span><i>◆</i>
+        <span>Pipeline Mode / Stealth Mode</span><i>◆</i>
+        <span>Intent-Result Alignment</span><i>◆</i>
+        <span>Mission Script</span><i>◆</i>
+        <span>Double Tenaza</span><i>◆</i>
+        <span>Circuit Delta</span><i>◆</i>
+        <span>NPC Agents</span><i>◆</i>
+        <span>Hallucination Debt</span><i>◆</i>
+        <span>The Garage</span><i>◆</i>
+        <span>Organizational Geometry</span><i>◆</i>
+        <span>Pipeline Mode / Stealth Mode</span><i>◆</i>
+      </div>
+    </div>
+
+    <!-- METHODOLOGY -->
+    <section class="section" id="method">
+      <div class="section__head reveal">
+        <p class="section__kicker">01 · The Methodology</p>
+        <h2>From status meetings to a cockpit</h2>
+        <p class="section__lede">
+          Vibe Leading replaces the analog management stack — meetings, vertical reports,
+          middle-managers-as-translators — with a telemetry-driven cockpit built for the
+          race against machines.
+        </p>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card reveal">
+          <span class="card__glyph">◈</span>
+          <h3>The Vibe</h3>
+          <p>The leader's high-frequency strategic intent, written as a <strong>Mission Script</strong> with the poetic clarity a human feels and the engineering precision an AI can execute. AI is a massive amplifier: a blurry intent becomes a hallucination; a sharp intent becomes an advantage.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card__glyph">◎</span>
+          <h3>IRA — Intent-Result Alignment</h3>
+          <p>The primary HUD metric. How closely the machine's output matches the Mission Script. 100% means the agents delivered exactly what was intended. 60% means the car is sliding off the track.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card__glyph">▤</span>
+          <h3>The HUD</h3>
+          <p>A live scoreboard that replaces the status meeting. The Pilot reads telemetry — <strong>Traction</strong>, <strong>Circuit Delta</strong>, <strong>Hallucination Debt</strong> — instead of asking humans what happened yesterday. Green telemetry cancels the meeting.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card__glyph">◇</span>
+          <h3>Organizational Geometry</h3>
+          <p>The 5-Person Racing Squad: <strong>1 Pilot + 4 Specialists + 100+ NPC Agents</strong>. A diamond, not a pyramid. Cut the drag, trust the geometry.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card__glyph">⚒</span>
+          <h3>The Double Tenaza</h3>
+          <p>The two-handed grip. One hand on human intuition, one on machine precision. When you grip both, you stop being a manager — you become a Pilot.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card__glyph">▣</span>
+          <h3>The Garage</h3>
+          <p>The unified engine bay where agents connect directly to corporate data through <strong>MCP servers</strong>. No human middleman. Build the Garage or stay in the museum.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SQUAD BAND -->
+    <section class="squad">
+      <div class="squad__inner">
+        <div class="section__head reveal">
+          <p class="section__kicker">02 · The Diamond Squad</p>
+          <h2>One Pilot. Four Specialists. One hundred agents.</h2>
+        </div>
+        <div class="squad__layout reveal">
+          <div class="squad__pilot">
+            <span class="squad__ring"></span>
+            <strong>1 Pilot</strong>
+            <small>Sets the Vibe · reads the HUD</small>
+          </div>
+          <div class="squad__specs">
+            <div class="chip chip--cyan">Ops Mechanic <small>keeps the Garage running</small></div>
+            <div class="chip chip--pink">Logic Navigator <small>maps goals into the HUD</small></div>
+            <div class="chip chip--cyan">Creative Pilot <small>crafts the Mission Scripts</small></div>
+            <div class="chip chip--pink">Risk Spotter <small>watches for Hallucination Debt</small></div>
+          </div>
+          <div class="squad__npcs">
+            <span class="squad__npc">Researcher NPC</span>
+            <span class="squad__npc">Auditor NPC</span>
+            <span class="squad__npc">Drafter NPC</span>
+            <span class="squad__npc">+100 NPC Agents</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="section__head reveal">
+        <p class="section__kicker">03 · Agent Skills</p>
+        <h2>Install the methodology into your coding agent</h2>
+        <p class="section__lede">
+          Five skills, installable via the open skills.sh ecosystem
+          (<code>npx skills add VibeLeading/&lt;name&gt;</code>) in Claude Code, OpenCode,
+          Cursor, Codex and 70+ more agents.
+        </p>
+      </div>
+
+      <div class="grid grid--2">
+        <article class="card card--tool reveal">
+          <div class="card__top">
+            <span class="tag">SKILL</span>
+            <span class="card__arrow">↗</span>
+          </div>
+          <h3>mission-script</h3>
+          <p>Write high-fidelity Mission Scripts and calibrate the Vibe. Covers the Prompt Ladder from Aspirational to Exemplar.</p>
+          <div class="copy">
+            <code>npx skills add VibeLeading/mission-script</code>
+            <button class="copy__btn" data-copy="npx skills add VibeLeading/mission-script" aria-label="Copy install command">COPY</button>
+          </div>
+          <a class="card__link" href="https://github.com/VibeLeading/mission-script" target="_blank" rel="noopener">Repository →</a>
+        </article>
+
+        <article class="card card--tool reveal">
+          <div class="card__top">
+            <span class="tag">SKILL</span>
+            <span class="card__arrow">↗</span>
+          </div>
+          <h3>ira-prompting</h3>
+          <p>Apply the seven Intent-Result Alignment techniques and score every prompt with the IRA rubric.</p>
+          <div class="copy">
+            <code>npx skills add VibeLeading/ira-prompting</code>
+            <button class="copy__btn" data-copy="npx skills add VibeLeading/ira-prompting" aria-label="Copy install command">COPY</button>
+          </div>
+          <a class="card__link" href="https://github.com/VibeLeading/ira-prompting" target="_blank" rel="noopener">Repository →</a>
+        </article>
+
+        <article class="card card--tool reveal">
+          <div class="card__top">
+            <span class="tag">SKILL</span>
+            <span class="card__arrow">↗</span>
+          </div>
+          <h3>hud-setup</h3>
+          <p>Design and calibrate the Scoreboard HUD with IRA thresholds and Circuit Delta targets.</p>
+          <div class="copy">
+            <code>npx skills add VibeLeading/hud-setup</code>
+            <button class="copy__btn" data-copy="npx skills add VibeLeading/hud-setup" aria-label="Copy install command">COPY</button>
+          </div>
+          <a class="card__link" href="https://github.com/VibeLeading/hud-setup" target="_blank" rel="noopener">Repository →</a>
+        </article>
+
+        <article class="card card--tool reveal">
+          <div class="card__top">
+            <span class="tag">SKILL</span>
+            <span class="card__arrow">↗</span>
+          </div>
+          <h3>pit-stop-audit</h3>
+          <p>Run the monthly Vibe Audit and the Pilot's Final Checklist. Check the HUD, the Squad, the Script.</p>
+          <div class="copy">
+            <code>npx skills add VibeLeading/pit-stop-audit</code>
+            <button class="copy__btn" data-copy="npx skills add VibeLeading/pit-stop-audit" aria-label="Copy install command">COPY</button>
+          </div>
+          <a class="card__link" href="https://github.com/VibeLeading/pit-stop-audit" target="_blank" rel="noopener">Repository →</a>
+        </article>
+
+        <article class="card card--tool reveal">
+          <div class="card__top">
+            <span class="tag">SKILL</span>
+            <span class="card__arrow">↗</span>
+          </div>
+          <h3>org-geometry</h3>
+          <p>Structure the Diamond Squad and configure the NPC Agents that do the grind.</p>
+          <div class="copy">
+            <code>npx skills add VibeLeading/org-geometry</code>
+            <button class="copy__btn" data-copy="npx skills add VibeLeading/org-geometry" aria-label="Copy install command">COPY</button>
+          </div>
+          <a class="card__link" href="https://github.com/VibeLeading/org-geometry" target="_blank" rel="noopener">Repository →</a>
+        </article>
+
+        <article class="card card--install reveal">
+          <span class="card__glyph">↵</span>
+          <h3>Install all five</h3>
+          <p>One command equips your agent with the whole methodology.</p>
+          <div class="copy">
+            <code>npx skills add VibeLeading/mission-script VibeLeading/ira-prompting VibeLeading/hud-setup VibeLeading/pit-stop-audit VibeLeading/org-geometry</code>
+            <button class="copy__btn" data-copy="npx skills add VibeLeading/mission-script VibeLeading/ira-prompting VibeLeading/hud-setup VibeLeading/pit-stop-audit VibeLeading/org-geometry" aria-label="Copy install all command">COPY</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- MCP SERVERS -->
+    <section class="section" id="mcp">
+      <div class="section__head reveal">
+        <p class="section__kicker">04 · MCP Servers</p>
+        <h2>Give your agents hands in the engine</h2>
+        <p class="section__lede">
+          The book defines the <strong>3 Must-Have MCP Servers</strong>. The org ships those
+          plus the Privacy Shield. TypeScript, stdio, MIT-licensed, installable with
+          <code>npx</code>.
+        </p>
+      </div>
+
+      <div class="grid grid--2">
+        <article class="card card--tool reveal">
+          <div class="card__top"><span class="tag tag--cyan">MCP</span><span class="card__arrow">↗</span></div>
+          <h3>mcp-hybrid-data-engine</h3>
+          <p class="card__role">The Memory Hub — Stone · Light · Flow</p>
+          <p>Connects your legacy SQL (The Stone), your vector semantic context (The Light), and the analytical columnar store that feeds the HUD in milliseconds (The Flow).</p>
+          <div class="chip-row">
+            <span class="chip chip--cyan">query_stone</span>
+            <span class="chip chip--cyan">semantic_search</span>
+            <span class="chip chip--cyan">flow_query</span>
+          </div>
+          <a class="card__link" href="https://github.com/VibeLeading/mcp-hybrid-data-engine" target="_blank" rel="noopener">Repository →</a>
+        </article>
+
+        <article class="card card--tool reveal">
+          <div class="card__top"><span class="tag tag--cyan">MCP</span><span class="card__arrow">↗</span></div>
+          <h3>mcp-document-architect</h3>
+          <p class="card__role">The Ecosystem Connector</p>
+          <p>Read/write access to the corporate paper trail. Drafts reports aligned with the Pilot's Mission Script. Google Workspace and Microsoft 365 adapters slot into the same interface.</p>
+          <div class="chip-row">
+            <span class="chip chip--pink">read_document</span>
+            <span class="chip chip--pink">write_document</span>
+            <span class="chip chip--pink">draft_report</span>
+          </div>
+          <a class="card__link" href="https://github.com/VibeLeading/mcp-document-architect" target="_blank" rel="noopener">Repository →</a>
+        </article>
+
+        <article class="card card--tool reveal">
+          <div class="card__top"><span class="tag tag--cyan">MCP</span><span class="card__arrow">↗</span></div>
+          <h3>mcp-real-time-scout</h3>
+          <p class="card__role">The Web &amp; API Connector</p>
+          <p>Keeps the HUD updated on market shifts and competitor moves, so the Pilot corrects course before the dinosaurs see the turn.</p>
+          <div class="chip-row">
+            <span class="chip chip--cyan">fetch_url</span>
+            <span class="chip chip--cyan">monitor_feed</span>
+            <span class="chip chip--cyan">track_competitor</span>
+          </div>
+          <a class="card__link" href="https://github.com/VibeLeading/mcp-real-time-scout" target="_blank" rel="noopener">Repository →</a>
+        </article>
+
+        <article class="card card--tool reveal">
+          <div class="card__top"><span class="tag tag--pink">SHIELD</span><span class="card__arrow">↗</span></div>
+          <h3>mcp-privacy-shield</h3>
+          <p class="card__role">Sanitization Gate · Tiered Sovereignty</p>
+          <p>Turns PII into tokens like <code>[CUSTOMER_01]</code> so the AI sees logic, never identity. Classifies data zones and monitors the Compliance Score.</p>
+          <div class="chip-row">
+            <span class="chip chip--pink">sanitize_text</span>
+            <span class="chip chip--pink">classify_zone</span>
+            <span class="chip chip--pink">compliance_check</span>
+          </div>
+          <a class="card__link" href="https://github.com/VibeLeading/mcp-privacy-shield" target="_blank" rel="noopener">Repository →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- BOOK -->
+    <section class="section section--book" id="book">
+      <div class="book reveal">
+        <div class="book__cover" aria-hidden="true">
+          <span>VIBE</span>
+          <span>LEADING</span>
+          <span class="book__cover-sub">the AI</span>
+          <small>Jean Machuca</small>
+        </div>
+        <div class="book__body">
+          <p class="section__kicker">05 · The Book</p>
+          <h2>Vibe Leading The AI</h2>
+          <p class="book__byline">The Corporate Race Against Machines · Jean Machuca</p>
+          <p class="book__isbn">ISBN 9798252505008 · © 2026 Jean Machuca</p>
+          <p>
+            The framework behind everything in this ecosystem. A surgical toolkit for
+            executives navigating the AI revolution — where the precision of an engineer
+            meets the intuition of a poet.
+          </p>
+          <div class="book__actions">
+            <a class="btn btn--primary" href="https://a.co/d/04L5YatK" target="_blank" rel="noopener">Buy on Amazon</a>
+            <a class="btn btn--ghost" href="https://jeanmachuca.com" target="_blank" rel="noopener">About the author</a>
+          </div>
+          <p class="book__fine print">The book is copyrighted material. The open-source code in this ecosystem is MIT-licensed and does not republish its text.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OATH -->
+    <section class="section section--oath" id="oath">
+      <div class="oath reveal">
+        <p class="section__kicker">06 · The Pilot's Oath</p>
+        <blockquote>
+          "I am no longer a facilitator of meetings.<br>
+          I am an <span class="text-grad">orchestrator of intelligence</span>.<br>
+          I do not manage by the clock; I lead by the Scoreboard."
+        </blockquote>
+        <p class="oath__cta">The race is on. Will you be the fossil, or will you be the Pilot?</p>
+      </div>
+    </section>
+
+    <!-- SUPPORT -->
+    <section class="section section--support">
+      <div class="support reveal">
+        <div>
+          <p class="section__kicker">Support the work</p>
+          <h2>Keep the cockpit funded</h2>
+          <p>Every skill and MCP server here is open source. Sponsor the author to keep the methodology sharp.</p>
+        </div>
+        <div class="support__actions">
+          <a class="btn btn--primary" href="https://github.com/sponsors/jeanmachuca" target="_blank" rel="noopener">GitHub Sponsors</a>
+          <a class="btn btn--ghost" href="https://jeanmachuca.com" target="_blank" rel="noopener">jeanmachuca.com</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <span class="footer__brand">Vibe<span class="text-grad">Leading</span></span>
+        <p class="footer__tagline">Small squads. Real-time telemetry. Direct intent.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="https://github.com/VibeLeading" target="_blank" rel="noopener">GitHub Org</a>
+        <a href="https://github.com/jeanmachuca" target="_blank" rel="noopener">Jean Machuca</a>
+        <a href="https://jeanmachuca.com" target="_blank" rel="noopener">jeanmachuca.com</a>
+        <a href="https://a.co/d/04L5YatK" target="_blank" rel="noopener">Buy the book</a>
+        <a href="https://github.com/sponsors/jeanmachuca" target="_blank" rel="noopener">Sponsor</a>
+      </nav>
+    </div>
+    <div class="footer__bar">
+      <span>© <span id="year">2026</span> VibeLeading · MIT-licensed code, all repos open source.</span>
+      <span>The book <em>Vibe Leading The AI</em> is © 2026 Jean Machuca.</span>
+    </div>
+  </footer>
+
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>

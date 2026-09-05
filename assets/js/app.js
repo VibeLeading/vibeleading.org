@@ -137,7 +137,7 @@
   }
 
   /* ---------- Copy pills ---------- */
-  document.querySelectorAll(".copy__btn").forEach((btn) => {
+  document.querySelectorAll(".copy__btn, .quickstart__copy").forEach((btn) => {
     btn.addEventListener("click", async () => {
       const text = btn.dataset.copy;
       try {

@@ -270,8 +270,40 @@
           Works in <strong>OpenCode</strong>, <strong>Claude Code</strong>, <strong>Cursor</strong>, <strong>Codex</strong>, and any agent that supports <code>npx</code> skills and MCP servers.
         </p>
         <div class="quickstart__prompt" role="region" aria-label="Copyable agent setup prompt">
-          <pre class="quickstart__code"><code>Give me the Vibe Leading methodology: install the 5 agent skills (Mission Script, IRA Prompting, HUD Setup, Pit Stop Audit, Org Geometry) so I can lead AI agents by intent + real-time telemetry, and add the 4 MCP servers (Hybrid Data Engine, Document Architect, Real-Time Scout, Privacy Shield) to my MCP config so I get hands in the corporate engine — legacy SQL, vector search, analytical columns, web intelligence, and PII sanitization. Env: MCP_STONE_PATH=data/stone.db, MCP_LIGHT_PATH=data/light.json, MCP_FLOW_PATH=data/flow.json, MCP_DOCS_ROOT=~/.vlb-docs, MCP_SHIELD_NAMES=1.</code></pre>
-          <button class="quickstart__copy" data-copy="Give me the Vibe Leading methodology: install the 5 agent skills (Mission Script, IRA Prompting, HUD Setup, Pit Stop Audit, Org Geometry) so I can lead AI agents by intent + real-time telemetry, and add the 4 MCP servers (Hybrid Data Engine, Document Architect, Real-Time Scout, Privacy Shield) to my MCP config so I get hands in the corporate engine — legacy SQL, vector search, analytical columns, web intelligence, and PII sanitization. Env: MCP_STONE_PATH=data/stone.db, MCP_LIGHT_PATH=data/light.json, MCP_FLOW_PATH=data/flow.json, MCP_DOCS_ROOT=~/.vlb-docs, MCP_SHIELD_NAMES=1." aria-label="Copy agent setup prompt">COPY PROMPT</button>
+          <pre class="quickstart__code"><code>Give me the Vibe Leading methodology: install the 5 agent skills so I can lead AI agents by intent + real-time telemetry, and add the 4 MCP servers so I get hands in the corporate engine.
+
+SKILLS (npx skills add):
+npx skills add VibeLeading/mission-script VibeLeading/ira-prompting VibeLeading/hud-setup VibeLeading/pit-stop-audit VibeLeading/org-geometry
+
+MCP SERVERS (@vibeleading scope, add to MCP config):
+@vibeleading/mcp-hybrid-data-engine
+@vibeleading/mcp-document-architect
+@vibeleading/mcp-real-time-scout
+@vibeleading/mcp-privacy-shield
+
+ENV VARS:
+MCP_STONE_PATH=data/stone.db
+MCP_LIGHT_PATH=data/light.json
+MCP_FLOW_PATH=data/flow.json
+MCP_DOCS_ROOT=~/.vlb-docs
+MCP_SHIELD_NAMES=1</code></pre>
+          <button class="quickstart__copy" data-copy="Give me the Vibe Leading methodology: install the 5 agent skills so I can lead AI agents by intent + real-time telemetry, and add the 4 MCP servers so I get hands in the corporate engine.
+
+SKILLS (npx skills add):
+npx skills add VibeLeading/mission-script VibeLeading/ira-prompting VibeLeading/hud-setup VibeLeading/pit-stop-audit VibeLeading/org-geometry
+
+MCP SERVERS (@vibeleading scope, add to MCP config):
+@vibeleading/mcp-hybrid-data-engine
+@vibeleading/mcp-document-architect
+@vibeleading/mcp-real-time-scout
+@vibeleading/mcp-privacy-shield
+
+ENV VARS:
+MCP_STONE_PATH=data/stone.db
+MCP_LIGHT_PATH=data/light.json
+MCP_FLOW_PATH=data/flow.json
+MCP_DOCS_ROOT=~/.vlb-docs
+MCP_SHIELD_NAMES=1" aria-label="Copy agent setup prompt">COPY PROMPT</button>
         </div>
         <p class="quickstart__note">The agent will run the installs and write the MCP config (e.g. <code>.mcp.json</code> for OpenCode, <code>claude_desktop_config.json</code> for Claude Desktop). Restart the agent after it finishes.</p>
       </div>
